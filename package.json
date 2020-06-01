@@ -1,0 +1,14 @@
+{
+  "name": "testux",
+  "version": "1.0.0",
+  "description": "Displays Images Fetched from URLs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Vikram Meyer",
+  "license": "ISC",
+  "dependencies": {
+    "xlsx": "^0.16.1"
+  }
+}
