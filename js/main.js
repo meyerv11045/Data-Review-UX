@@ -55,8 +55,28 @@ function displayUPCInfo(){
     ul.children[3].innerHTML = item["basePrice"];
 
     let upc = document.getElementById("ItemID");
-    upc.innerHTML = item["uuid"]
+    upc.innerHTML = `${item["uuid"]} (Item ${entry + 1} out of ${excelRows.length} in this section)`;
+}
 
+function home() {
+    const home = document.querySelector("div.home");
+    home.style.display = "block";
+    const content = document.querySelector("div.review");
+    content.style.display = "none";
+}
+
+function previous() {
+    console.log("Previous");
+    entry--;
+    displayImg();
+    displayUPCInfo();
+}
+
+function next() {
+    console.log("Next");
+    entry++;
+    displayImg();
+    displayUPCInfo();
 }
 
 function displayImages(){
@@ -65,46 +85,13 @@ function displayImages(){
 
     let home = document.querySelector("div.home");
     home.style.display = "none";
-    
-    if (!document.querySelector("button.next")){
-        let next = document.createElement("button");
-        next.innerHTML = "Next";
-        next.className = "next"
-        next.onclick = () => {
-            console.log("Next");
-            entry++;
-            displayImg();
-            displayUPCInfo();
-        };
-        
-        let previous = document.createElement("button");
-        previous.innerHTML = "Previous";
-        previous.onclick = () => {
-            console.log("Previous");
-            entry--;
-            displayImg();
-            displayUPCInfo();
-        };
 
-        let home_btn = document.createElement("button");
-        home_btn.innerHTML = "Home";
-        home_btn.onclick =() => {
-            home.style.display = "block";
-            content.style.display = "none";
-        }
-        const nav = document.querySelector("div.navigation");
-        nav.appendChild(home_btn);
-        nav.appendChild(previous);
-        nav.appendChild(next);
-
-        displayImg();
-        displayUPCInfo();
-    }
+    displayImg();
+    displayUPCInfo();
 }
 
 const file_input = document.getElementById('fileUpload');
 file_input.addEventListener('change',handleFile);
-
 
 /*
 Excel to Json Example Reponse: (each row has a 0 indexed key)
