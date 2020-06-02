@@ -26,17 +26,23 @@ function displayImg(){
     kg_img_url = excelRows[entry]["Kroger Image URL"];
     wmrt_img_url = excelRows[entry]["Walmart Image URL"];
 
+    let img = document.getElementById("FF");
     if (ff_img_url !== "NA") {
-        let img = document.getElementById("FF");
         img.src = ff_img_url;
-    } 
-    if (kg_img_url !== "NA") {
-        let img = document.getElementById("Kroger")
-        img.src = kg_img_url;
+    } else {
+        img.src = "../imgs/noImage.jpeg";
     }
+    img = document.getElementById("Kroger");
+    if (kg_img_url !== "NA") {
+        img.src = kg_img_url;
+    } else {
+        img.src = "../imgs/noImage.jpeg";
+    }
+    img = document.getElementById("Walmart");
     if (wmrt_img_url !== "NA") {
-        let img = document.getElementById("Walmart")
         img.src = wmrt_img_url;
+    } else {
+        img.src = "../imgs/noImage.jpeg";
     }
 }
 
@@ -47,6 +53,10 @@ function displayUPCInfo(){
     ul.children[1].innerHTML = item["sizeDisplay"];
     ul.children[2].innerHTML = item["brand"];
     ul.children[3].innerHTML = item["basePrice"];
+
+    let upc = document.getElementById("ItemID");
+    upc.innerHTML = item["uuid"]
+
 }
 
 function displayImages(){
