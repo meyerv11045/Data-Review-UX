@@ -4,26 +4,30 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="./css/main.css"/>
+    <link rel="icon" href="imgs/logo.png"/>
     <title>Data Reviewer</title>
 </head>
 <body>
-    <div class="header">
-        <h2>Welcome to the Data Reviewer for Food Forest</h2>
+    <div class="home">
+        <div class="header">
+            <h1>Food Forest Data Reviewer</h2>
+        </div>
+        <hr />
+        <div class="info">
+            <p>If there is incorrect or incomplete data (e.g. No name, Wrong Image), copy the UUID into an excel sheet and note the problem.
+                See the issue log example in the shared One Drive folder for reference.
+            </p>
+        </div>
+        <div class="uploading">
+            <p>Upload the excel file for the data section to be reviewed:</p>
+            <input type="file" id="fileUpload" accept=".xlsx"/>
+            <button type="button" onclick="displayImages()">Next</button>
+        </div>  
     </div>
-    <hr />
-    <div class="info">
-        <p>If there is incorrect or incomplete data (e.g. No name, Wrong Image), copy the UUID into an excel sheet and note the problem.
-            See the issue log example in the shared One Drive folder for reference.
-        </p>
+    <div class="review">
+        <div class="images"></div>
+        <div class="navigation"></div>
     </div>
-    <div class="uploading">
-        <p>Upload the excel file for the data section to be reviewed:</p>
-        <input type="file" id="fileUpload" accept=".xlsx" />
-        <p>Once the excel file for the data section has been uploaded, click next to begin reviewing the data.</p>
-        <a href="viewer.html" class="button">Next</a>
-    </div>  
-    <hr />
-    <div class="test"></div>
     <script type="text/javascript" src="https://oss.sheetjs.com/sheetjs/xlsx.full.min.js"></script>
     <script type="text/javascript" src='./js/main.js'></script>
 </body>

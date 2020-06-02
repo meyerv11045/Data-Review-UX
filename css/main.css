@@ -1,3 +1,15 @@
+
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    color: #898886;
+}
+
+h1 {
+    color: #99cb37;
+    font-weight: lighter;
+}
+
 a {
     text-decoration: none;
 }
