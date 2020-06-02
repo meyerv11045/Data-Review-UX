@@ -46,10 +46,12 @@
             </div>
         </div>
         <div class="navigation">
-            <button onclick="home()">Home</button>
             <h4 id="ItemID"></h4>
-            <button onclick="previous()">Previous</button>
-            <button onclick="next()">Next</button>
+            <div class="btn-group">
+                <button onclick="home()" id="home">Home</button>
+                <button onclick="previous()" id="previous">Previous</button>
+                <button onclick="next()" id="next">Next</button>
+            </div>
         </div>
     </div>
     <script type="text/javascript" src="https://oss.sheetjs.com/sheetjs/xlsx.full.min.js"></script>
