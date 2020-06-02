@@ -20,13 +20,41 @@ function processExcel(workbook) {
     excelRows = XLSX.utils.sheet_to_row_object_array(workbook.Sheets[sheet1]);
 }
 
+function displayImg(){
+    const images = document.querySelector("div.images");
+    ff_img_url = excelRows[entry]["FF Image URL"];
+    kg_img_url = excelRows[entry]["Kroger Image URL"];
+    wmrt_img_url = excelRows[entry]["Walmart Image URL"];
+
+    if (ff_img_url !== "NA") {
+        let img = document.getElementById("FF");
+        img.src = ff_img_url;
+    } 
+    if (kg_img_url !== "NA") {
+        let img = document.getElementById("Kroger")
+        img.src = kg_img_url;
+    }
+    if (wmrt_img_url !== "NA") {
+        let img = document.getElementById("Walmart")
+        img.src = wmrt_img_url;
+    }
+}
+
+function displayUPCInfo(){
+    let item = excelRows[entry];
+    let ul = document.getElementById("UPCInfo");
+    ul.children[0].innerHTML = item["name"];
+    ul.children[1].innerHTML = item["sizeDisplay"];
+    ul.children[2].innerHTML = item["brand"];
+    ul.children[3].innerHTML = item["basePrice"];
+}
+
 function displayImages(){
-    const nav = document.querySelector("div.navigation");
-    nav.style.display = "block";
-    
+    const content = document.querySelector("div.review");
+    content.style.display = "block";
+
     let home = document.querySelector("div.home");
     home.style.display = "none";
-    
     
     if (!document.querySelector("button.next")){
         let next = document.createElement("button");
@@ -35,6 +63,8 @@ function displayImages(){
         next.onclick = () => {
             console.log("Next");
             entry++;
+            displayImg();
+            displayUPCInfo();
         };
         
         let previous = document.createElement("button");
@@ -42,18 +72,23 @@ function displayImages(){
         previous.onclick = () => {
             console.log("Previous");
             entry--;
+            displayImg();
+            displayUPCInfo();
         };
 
         let home_btn = document.createElement("button");
         home_btn.innerHTML = "Home";
         home_btn.onclick =() => {
             home.style.display = "block";
-            nav.style.display = "none";
+            content.style.display = "none";
         }
-
+        const nav = document.querySelector("div.navigation");
         nav.appendChild(home_btn);
         nav.appendChild(previous);
         nav.appendChild(next);
+
+        displayImg();
+        displayUPCInfo();
     }
 }
 
