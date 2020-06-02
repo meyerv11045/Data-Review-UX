@@ -56,6 +56,11 @@ function displayUPCInfo(){
 
     let upc = document.getElementById("ItemID");
     upc.innerHTML = `${item["uuid"]} (Item ${entry + 1} out of ${excelRows.length} in this section)`;
+
+    let kg_url = document.getElementById("KGurl");
+    kg_url.href = item["Kroger URL"];
+    let wmrt_url = document.getElementById("WMRTurl");
+    wmrt_url.href = item["Walmart URL"];
 }
 
 function home() {
