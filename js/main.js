@@ -13,6 +13,7 @@ function handleFile(event) {
         processExcel(workbook);
     };
     reader.readAsArrayBuffer(f);
+    entry = 0;
 }
 
 function processExcel(workbook) {
@@ -54,42 +55,37 @@ function displayUPCInfo(){
     ul.children[2].innerHTML = item["brand"];
     ul.children[3].innerHTML = item["basePrice"];
 
-    let upc = document.getElementById("ItemID");
-    upc.innerHTML = `${item["uuid"]} (Item ${entry + 1} out of ${excelRows.length} in this section)`;
+    //Display the UUID & Item Number in the Section
+    document.getElementById("ItemID").innerHTML = item["uuid"];
+    document.getElementById("ItemNum").innerHTML = `(Item ${entry + 1} out of ${excelRows.length} in this section)`;
 
-    let kg_url = document.getElementById("KGurl");
-    kg_url.href = item["Kroger URL"];
-    let wmrt_url = document.getElementById("WMRTurl");
-    wmrt_url.href = item["Walmart URL"];
+    //Set the Product URLS
+    document.getElementById("KGurl").href = item["Kroger URL"];
+    document.getElementById("WMRTurl").href = item["Walmart URL"];
 }
 
 function home() {
-    const home = document.querySelector("div.home");
-    home.style.display = "block";
-    const content = document.querySelector("div.review");
-    content.style.display = "none";
+    //Hide the Review section and display the Home page
+    document.querySelector("div.home").style.display = "block";
+    document.querySelector("div.review").style.display = "none";
 }
 
 function previous() {
-    console.log("Previous");
     entry--;
     displayImg();
     displayUPCInfo();
 }
 
 function next() {
-    console.log("Next");
     entry++;
     displayImg();
     displayUPCInfo();
 }
 
 function displayImages(){
-    const content = document.querySelector("div.review");
-    content.style.display = "block";
-
-    let home = document.querySelector("div.home");
-    home.style.display = "none";
+    //Hide the home page and display the review section
+    document.querySelector("div.review").style.display = "block";
+    document.querySelector("div.home").style.display = "none";
 
     displayImg();
     displayUPCInfo();
