@@ -31,19 +31,19 @@ function displayImg(){
     if (ff_img_url !== "NA") {
         img.src = ff_img_url;
     } else {
-        img.src = "../imgs/noImage.jpeg";
+        img.src = "/imgs/noImage.jpeg";
     }
     img = document.getElementById("Kroger");
     if (kg_img_url !== "NA") {
         img.src = kg_img_url;
     } else {
-        img.src = "../imgs/noImage.jpeg";
+        img.src = "/imgs/noImage.jpeg";
     }
     img = document.getElementById("Walmart");
     if (wmrt_img_url !== "NA") {
         img.src = wmrt_img_url;
     } else {
-        img.src = "../imgs/noImage.jpeg";
+        img.src = "/imgs/noImage.jpeg";
     }
 }
 
